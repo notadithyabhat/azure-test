@@ -75,7 +75,8 @@
 										"value": "@concat('SELECT * FROM ',item().schemaName,'.',item().tableName)",
 										"type": "Expression"
 									},
-									"queryTimeout": "02:00:00"
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
 								},
 								"sink": {
 									"type": "ParquetSink",
