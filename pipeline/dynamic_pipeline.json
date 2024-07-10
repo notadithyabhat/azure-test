@@ -115,7 +115,25 @@
 							"outputs": [
 								{
 									"referenceName": "genericADLSg2Parquet_DS",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"serverName": {
+											"value": "@pipeline().parameters.serverName",
+											"type": "Expression"
+										},
+										"databaseName": {
+											"value": "@pipeline().parameters.databaseName",
+											"type": "Expression"
+										},
+										"schemaName": {
+											"value": "@item().schemaName",
+											"type": "Expression"
+										},
+										"tableName": {
+											"value": "@item().tableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
