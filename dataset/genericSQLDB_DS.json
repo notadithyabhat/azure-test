@@ -2,7 +2,7 @@
 	"name": "genericSQLDB_DS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "GenericAzureSQLDB_LS",
+			"referenceName": "genericDB_LS",
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"serverName": {
