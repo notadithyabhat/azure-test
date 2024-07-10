@@ -1,0 +1,112 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "sampledf69"
+		},
+		"ADLSgen2_LS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSgen2_LS'"
+		},
+		"AdventureWorksSQLDV_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AdventureWorksSQLDV_LS'"
+		},
+		"genericDB_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'genericDB_LS'"
+		},
+		"ADLSgen2_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sampledatalake69.dfs.core.windows.net/"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sampleserver69.database.windows.net"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mydatabase"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "aditbhat"
+		},
+		"genericDB_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().serverName}"
+		},
+		"genericDB_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().databaseName}"
+		},
+		"genericDB_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "aditbhat"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "sampledf69_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLSgen2_LS_accountKey": {
+						"value": "[parameters('ADLSgen2_LS_accountKey')]"
+					},
+					"AdventureWorksSQLDV_LS_password": {
+						"value": "[parameters('AdventureWorksSQLDV_LS_password')]"
+					},
+					"genericDB_LS_password": {
+						"value": "[parameters('genericDB_LS_password')]"
+					},
+					"ADLSgen2_LS_properties_typeProperties_url": {
+						"value": "[parameters('ADLSgen2_LS_properties_typeProperties_url')]"
+					},
+					"AdventureWorksSQLDV_LS_properties_typeProperties_server": {
+						"value": "[parameters('AdventureWorksSQLDV_LS_properties_typeProperties_server')]"
+					},
+					"AdventureWorksSQLDV_LS_properties_typeProperties_database": {
+						"value": "[parameters('AdventureWorksSQLDV_LS_properties_typeProperties_database')]"
+					},
+					"AdventureWorksSQLDV_LS_properties_typeProperties_userName": {
+						"value": "[parameters('AdventureWorksSQLDV_LS_properties_typeProperties_userName')]"
+					},
+					"genericDB_LS_properties_typeProperties_server": {
+						"value": "[parameters('genericDB_LS_properties_typeProperties_server')]"
+					},
+					"genericDB_LS_properties_typeProperties_database": {
+						"value": "[parameters('genericDB_LS_properties_typeProperties_database')]"
+					},
+					"genericDB_LS_properties_typeProperties_userName": {
+						"value": "[parameters('genericDB_LS_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

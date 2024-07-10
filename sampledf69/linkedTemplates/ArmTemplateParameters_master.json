@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "sampledf69"
+		},
+		"ADLSgen2_LS_accountKey": {
+			"value": ""
+		},
+		"AdventureWorksSQLDV_LS_password": {
+			"value": ""
+		},
+		"genericDB_LS_password": {
+			"value": ""
+		},
+		"ADLSgen2_LS_properties_typeProperties_url": {
+			"value": "https://sampledatalake69.dfs.core.windows.net/"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_server": {
+			"value": "sampleserver69.database.windows.net"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_database": {
+			"value": "mydatabase"
+		},
+		"AdventureWorksSQLDV_LS_properties_typeProperties_userName": {
+			"value": "aditbhat"
+		},
+		"genericDB_LS_properties_typeProperties_server": {
+			"value": "@{linkedService().serverName}"
+		},
+		"genericDB_LS_properties_typeProperties_database": {
+			"value": "@{linkedService().databaseName}"
+		},
+		"genericDB_LS_properties_typeProperties_userName": {
+			"value": "aditbhat"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
