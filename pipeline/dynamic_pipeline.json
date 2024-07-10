@@ -79,12 +79,15 @@
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "ParquetSink",
+									"type": "DelimitedTextSink",
 									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
+										"type": "AzureBlobFSWriteSettings",
+										"copyBehavior": "FlattenHierarchy"
 									},
 									"formatSettings": {
-										"type": "ParquetWriteSettings"
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
 									}
 								},
 								"enableStaging": false,
@@ -115,7 +118,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "genericADLSg2Parquet_DS",
+									"referenceName": "genericADLSg2CSV_DS",
 									"type": "DatasetReference",
 									"parameters": {
 										"serverName": {
