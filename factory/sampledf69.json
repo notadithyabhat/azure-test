@@ -1,0 +1,9 @@
+{
+	"name": "sampledf69",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "122b92f5-d446-4bb9-8c58-0b500a3f6a3b",
+		"tenantId": "f3e5041d-bd68-4d9b-a99c-fee2f33c0570"
+	}
+}

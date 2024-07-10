@@ -1,0 +1,22 @@
+{
+	"name": "Cutsomer_Parquet_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLSgen2_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Customer.parquet",
+				"folderPath": "sampleserver69/AdventureWorks/Customer/Year=2023/Month=10/Day=20",
+				"fileSystem": "raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
