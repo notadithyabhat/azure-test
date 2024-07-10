@@ -1,0 +1,41 @@
+{
+	"name": "genericADLSg2Parquet_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLSgen2_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"serverName": {
+				"type": "string"
+			},
+			"databaseName": {
+				"type": "string"
+			},
+			"schemaName": {
+				"type": "string"
+			},
+			"tableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(dataset().schemaName, '_', dataset().tableName, '.csv')",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat(\n    dataset().serverName,\n    '/',\n    dataset().databaseName,\n    '/Year=',\n    formatDateTime(utcnow(), 'yyyy'),\n    '/Month=',\n    formatDateTime(utcnow(), 'MM'),\n    '/Day=',\n    formatDateTime(utcnow(), 'dd')\n)",
+					"type": "Expression"
+				},
+				"fileSystem": "raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
